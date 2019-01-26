@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weigth Converter</title>
+    <link rel="stylesheet" href="MyPortfolio/jquery&bootstrap/bootstrap.min.css">
+    <style>
+        body{
+            margin-top: 20px;
+            background: #333;
+            color: #223;
+        }
+        .container{
+            width: 600px;
+            height: 800px;
+            background-color: aliceblue;
+            margin-bottom: 20px;
+        }
+        h1{
+            transform: scale(0.8);
+            color: #333;
+            width: 300px;
+            border-bottom: 5px solid red;
+            padding-bottom: 20px 0;
+        }
+        h4{
+            padding: 7px;
+        }
+        #gramsOutput,#kiloGramsOutput,#oncOutput{
+            padding: 20px;
+            background-color: grey;
+            color: white;
+        }
+       
+    </style>
+    
+</head>
+<body>
+    <div class="container center">
+       <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="display-4 text-center mb-5">Weigth Converter</h1>
+            
+             <form>
+                 <div class="form-group">
+                     <input id="1_input" type="number" class="form-control form-control-lg" placeholder="Enter Pounds...">
+                 </div>
+             </form>
+             
+             <div id="output">
+                 <div class="card btn-primary mb-2">
+                     <div class="card-block">
+                         <h4>Grams:</h4>
+                         <div id="gramsOutput"></div>
+                     </div>
+                 </div>
+                 
+                 <div class="card btn-success mb-2">
+                     <div class="card-block">
+                         <h4>KiloGrams:</h4>
+                         <div id="kiloGramsOutput"></div>
+                     </div>
+                 </div>
+                 
+                 <div class="card card-danger mb-2">
+                     <div class="card-block">
+                         <h4>Ounces:</h4>
+                         <div id="oncOutput"></div>
+                     </div>
+                 </div>
+            </div>
+             </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('output').style.visibility = "hidden";
+        var input = document.getElementById('1_input');
+        var gopt = document.getElementById('gramsOutput');
+        var kgopt = document.getElementById('kiloGramsOutput');
+        var oncopt = document.getElementById('oncOutput');
+        
+            input.addEventListener('input',function(e){
+                document.getElementById('output').style.visibility = "visible";
+               let inp = e.target.value;
+                gopt.innerHTML = inp/0.0022046;
+                kgopt.innerHTML = inp/2.2046;
+                oncopt.innerHTML = inp*16;
+            });
+    </script>
+    
+</body>
+</html>
